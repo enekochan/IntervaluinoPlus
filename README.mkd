@@ -83,14 +83,14 @@ file (used by Fritzing [5]) is available.
 
 The Arduino board is basicaly connected like this:
 
-D3 -> 4 digit 7 segment serial display RX.
-D5 -> Right push switch.
-D6 -> Left push switch.
-D7 -> Up push switch.
-D8 -> Down push switch.
-D9 -> Optocoupler or relay.
+ - D3 -> 4 digit 7 segment serial display RX.
+ - D5 -> Right push switch.
+ - D6 -> Left push switch.
+ - D7 -> Up push switch.
+ - D8 -> Down push switch.
+ - D9 -> Optocoupler or relay.
 
-Connect all the push switches to 5 volts and install a 10K ohm pull-down
+Connect all the push switches to 5 volts and install 10K ohm pull-down
 resistors on D5, D6, D7 and D8.
 
 If you use the optocoupler you must also install a 330 ohm resistor in series
@@ -129,10 +129,10 @@ See the LICENSE file.
 LINKS
 =====
 
-[1] http://www.arduino.cc
-[2] http://shop.moderndevice.com/products/rbbb-kit
-[3] http://timmsuess.com/intervaluino/
-[4] http://timmsuess.com/
-[5] http://fritzing.org/
-[6] http://www.sparkfun.com/products/9766
-[7] http://www.sparkfun.com/products/100
+ - [1] http://www.arduino.cc
+ - [2] http://shop.moderndevice.com/products/rbbb-kit
+ - [3] http://timmsuess.com/intervaluino/
+ - [4] http://timmsuess.com/
+ - [5] http://fritzing.org/
+ - [6] http://www.sparkfun.com/products/9766
+ - [7] http://www.sparkfun.com/products/100
