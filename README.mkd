@@ -1,0 +1,138 @@
+
+Intervaluino Plus Version 1.0 by Enekochan <http://tech.enekochan.com/>
+
+ABOUT
+=====
+
+Intervaluino Plus is a small configurable intervalometer for your DSLR camera.
+You can use an Arduino [1] board as soon as it is compatible with Arduino Uno.
+I used a RBBB [2] board and also tested it with an Arduino Duemilanove.
+
+The name of Intervaluino Plus comes from the concept of extending the
+capabilities of the previous Arduino intervalometer called Intervaluino [3]
+made by Timm Suess [4].
+
+
+USE
+===
+
+Intervaluino Plus is configurable via 4 buttons: left, right, up and down and
+comes with a 4 digit 7 segment serial display (Sparfunk COM-0976X) [4] that only
+needs one line to be controlled. Left and right buttons are used to change the
+menu option whereas up and down change the value of the options themselves.
+
+When Intervaluino Plus is switched on it asks how many pictures have to be
+taken by displaying the text "PICS". We can then use up and down to increase or
+decrease the amount from 1 picture up to 9999. If you are thinking that you
+don’t want to push the botton 9999 times you are as lazy as me  So I
+implemented a "fast forwad" that makes the counter go faster if you leave the
+button pushed for some time. Also to know that you are on the first option the
+first dot down on the right of the display will remain on.
+
+Once we have selected the amount of pictures to take we can push the left
+button to go to the next menu option, which is called "PERI". It represents
+the period of time we want between every picture. We can configure it from 1
+second up to 9999. This time you will see that the second dot is on,
+representing that we are changing the second option.
+
+We are now ready to take pictures! Just push the left botton once more and the
+display will show "PHOT" and the Intervaluino Plus will start taking pictures.
+Once finished the job Intervaluino Plus will go back to the first option again.
+
+There is a "hidden" feature so you can adjust the display brightness on power
+up. If you turn on the Intervaluino Plus while you maintain pushed the up
+button the display will bright at the highest level whereas maintaining the
+down button will make the display barely bright. Use this option to safe
+battery or if the light conditions prevent you from reading clearly the digits.
+
+
+SCHEMA
+======
+A schema and a breadboard diagram can be found in the repository. Also a .FZZ
+file (used by Fritzing [5]) is available.
+
+       +--------------------+-5V
+       |                    |
+    +--+--+  ARDUINO        |
+    | 5V  |                 |
+    |     |             S4  |
+    | D8  |---------+---/ --+
+    | GND |---<10k>-+       |
+    |     |             S3  |
+    | D7  |---------+---/ --+
+    | GND |---<10k>-+       |
+    |     |             S2  |
+    | D6  |---------+---/ --+
+    | GND |---<10k>-+       |
+    |     |             S1  |
+    | D5  |---------+---/ --+
+    | GND |---<10k>-+                    4N35      /---O--\/      +-+
+    |     |                             +----+    /               | |
+    | D9  |---<330>---------------------|1  5|---/   --O------/\  | |
+    |     |              COM-0976X      |    |                    | |
+    |     |               +-----+    +--|2  4|---------O----------+-+
+    | D3  |---------------| RX  |    |  +----+        STEREO FEMALE 2.5mm
+    |     |           5V--| VCC |    |
+    |     |               | GND |    |
+    | GND |               +--+--+    |
+    +-----+                  |       |
+       |---------------------+-------+
+      ===
+    Ground
+
+
+The Arduino board is basicaly connected like this:
+
+D3 -> 4 digit 7 segment serial display RX.
+D5 -> Right push switch.
+D6 -> Left push switch.
+D7 -> Up push switch.
+D8 -> Down push switch.
+D9 -> Optocoupler or relay.
+
+Connect all the push switches to 5 volts and install a 10K ohm pull-down
+resistors on D5, D6, D7 and D8.
+
+If you use the optocoupler you must also install a 330 ohm resistor in series
+with D9.
+
+
+PARTS LIST
+==========
+
+ - 1x Arduino compatible board, a RBBB for example.
+ - 1x Sparfunk COM-0976X 4 digit 7 segment serial display [6].
+ - 1x 4n35 or 4n25 optocoupler or a 5V relay (JZC-11F-05VDC-1Z [7] for example).
+ - 4x push switches.
+ - 4x 10KΩ resistors.
+ - 1x 330Ω resistor if you use the optocoupler.
+ - 1x connector for your camera cable. Female 2.5mm stereo jack for Canon DSLR.
+
+
+TODO
+====
+
+ - Change the limit of 9999 pictures and 9999 maximun seconds between every
+   picture.
+ - A "BULB" option so the shutter stays open for a period of time configured in
+   the options.
+ - Texts longer than 4 characters that will scroll on the display.
+ - Add another button to use it as an "enter" key.
+
+
+LICENSE
+=======
+
+See the LICENSE file.
+
+
+LINKS
+=====
+
+[1] http://www.arduino.cc
+[2] http://shop.moderndevice.com/products/rbbb-kit
+[3] http://timmsuess.com/intervaluino/
+[4] http://timmsuess.com/
+[5] http://fritzing.org/
+[6] http://www.sparkfun.com/products/9766
+[7] http://www.sparkfun.com/products/100
