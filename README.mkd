@@ -88,13 +88,12 @@ The Arduino board is basicaly connected like this:
  - D6 -> Left push switch.
  - D7 -> Up push switch.
  - D8 -> Down push switch.
- - D9 -> Optocoupler or relay.
+ - D9 -> Optocoupler.
 
 Connect all the push switches to 5 volts and install 10K ohm pull-down
 resistors on D5, D6, D7 and D8.
 
-If you use the optocoupler you must also install a 330 ohm resistor in series
-with D9.
+You must install a 330 ohm resistor in series on D9 for the optocoupler.
 
 
 PARTS LIST
@@ -102,7 +101,7 @@ PARTS LIST
 
  - 1x Arduino compatible board, a RBBB for example.
  - 1x Sparfunk COM-0976X 4 digit 7 segment serial display [6].
- - 1x 4n35 or 4n25 optocoupler or a 5V relay (JZC-11F-05VDC-1Z [7] for example).
+ - 1x 4n35 or 4n25 optocoupler.
  - 4x push switches.
  - 4x 10KΩ resistors.
  - 1x 330Ω resistor if you use the optocoupler.
@@ -135,4 +134,3 @@ LINKS
  - [4] http://timmsuess.com/
  - [5] http://fritzing.org/
  - [6] http://www.sparkfun.com/products/9766
- - [7] http://www.sparkfun.com/products/100

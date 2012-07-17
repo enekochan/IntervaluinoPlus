@@ -101,8 +101,8 @@ Datasheet: http://www.sparkfun.com/datasheets/Components/General/JZC-11F-05VDC-1
 #define READING_INTERVAL 1
 #define TAKING_PICTURES 2
 
-#define SHUTTER_PRESS_DELAY   500 // How long (ms) the shutter relay will be closed to take a picture
-//#define FOCUS_PRESS_DELAY     500 // How long (ms) the focus relay will be closed
+#define SHUTTER_PRESS_DELAY   900 // How long (ms) the shutter relay will be closed to take a picture
+//#define FOCUS_PRESS_DELAY     900 // How long (ms) the focus relay will be closed
 #define FASTFORWARD_DELAY     500 // Time to wait until fastforward is activated
 #define FASTFORWARD_REP_DELAY 20  // Delay between each repeated button click
 
