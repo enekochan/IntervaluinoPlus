@@ -49,12 +49,6 @@ What you are really doing is sending first a 0x7B and then ¡¡¡a 0x76!!! and t
 and move cursor to digit 1. ¿Any one knows how to display an H on this display?
 For more details see "Special Codes" section in http://www.arunet.co.uk/tkboyd/ec/ec1led4x7ser.htm
 
-----------------------------------------------------------------------------------------------------------
-
-Relay: JZC-11F-05VDC-1Z
-
-Datasheet: http://www.sparkfun.com/datasheets/Components/General/JZC-11F-05VDC-1Z%20EN.pdf
-
 */
 
 // Timer interrupts
@@ -83,7 +77,7 @@ Datasheet: http://www.sparkfun.com/datasheets/Components/General/JZC-11F-05VDC-1
 #define UP_IN 7
 #define DOWN_IN 8
 
-// Relay pins
+// Optocoupler pins
 #define SHUTTER_OUT 9
 //#define FOCUS_OUT 10
 
@@ -101,8 +95,8 @@ Datasheet: http://www.sparkfun.com/datasheets/Components/General/JZC-11F-05VDC-1
 #define READING_INTERVAL 1
 #define TAKING_PICTURES 2
 
-#define SHUTTER_PRESS_DELAY   900 // How long (ms) the shutter relay will be closed to take a picture
-//#define FOCUS_PRESS_DELAY     900 // How long (ms) the focus relay will be closed
+#define SHUTTER_PRESS_DELAY   900 // How long (ms) the shutter will be closed to take a picture
+//#define FOCUS_PRESS_DELAY     900 // How long (ms) the focus will be closed
 #define FASTFORWARD_DELAY     500 // Time to wait until fastforward is activated
 #define FASTFORWARD_REP_DELAY 20  // Delay between each repeated button click
 
@@ -195,7 +189,7 @@ void setup() {
   pinMode(LEFT_IN, INPUT);
   pinMode(DOWN_IN, INPUT);
   pinMode(UP_IN, INPUT);
-  // Digital OUTPUTs for relays
+  // Digital OUTPUTs for optocouplers
   pinMode(SHUTTER_OUT, OUTPUT);
   //pinMode(FOCUS_OUT, OUTPUT);
   
