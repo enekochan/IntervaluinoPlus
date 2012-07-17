@@ -104,7 +104,7 @@ PARTS LIST
  - 1x 4n35 or 4n25 optocoupler.
  - 4x push switches.
  - 4x 10KΩ resistors.
- - 1x 330Ω resistor if you use the optocoupler.
+ - 1x 330Ω resistor.
  - 1x connector for your camera cable. Female 2.5mm stereo jack for Canon DSLR.
 
 
