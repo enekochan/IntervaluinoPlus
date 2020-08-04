@@ -1,23 +1,23 @@
 
-Intervaluino Plus Version 1.0 by Enekochan <http://tech.enekochan.com/>
+Intervaluino Plus Version 1.0
 
 ABOUT
 =====
 
 Intervaluino Plus is a small configurable intervalometer for your DSLR camera.
-You can use an Arduino [1] board as soon as it is compatible with Arduino Uno.
-I used a RBBB [2] board and also tested it with an Arduino Duemilanove.
+You can use an Arduino board as soon as it is compatible with Arduino Uno.
+I used a [RBBB](https://moderndevice.com/product/rbbb-kit/) board and also tested it with an Arduino Duemilanove.
 
 The name of Intervaluino Plus comes from the concept of extending the
-capabilities of the previous Arduino intervalometer called Intervaluino [3]
-made by Timm Suess [4].
+capabilities of the previous Arduino intervalometer called Intervaluino
+made by Timm Suess.
 
 
 USE
 ===
 
 Intervaluino Plus is configurable via 4 buttons: left, right, up and down and
-comes with a 4 digit 7 segment serial display (Sparfunk COM-0976X) [4] that only
+comes with a 4 digit 7 segment serial display [Sparfunk COM-0976X ](https://www.sparkfun.com/products/retired/9766) that only
 needs one line to be controlled. Left and right buttons are used to change the
 menu option whereas up and down change the value of the options themselves.
 
@@ -49,7 +49,7 @@ battery or if the light conditions prevent you from reading clearly the digits.
 SCHEMA
 ======
 A schema and a breadboard diagram can be found in the repository. Also a .FZZ
-file (used by Fritzing [5]) is available.
+file (used by [Fritzing](http://fritzing.org/)) is available.
 
        +--------------------+-5V
        |                    |
@@ -100,7 +100,7 @@ PARTS LIST
 ==========
 
  - 1x Arduino compatible board, a RBBB for example.
- - 1x Sparfunk COM-0976X 4 digit 7 segment serial display [6].
+ - 1x [Sparfunk COM-0976X 4 digit 7 segment serial display](https://www.sparkfun.com/products/retired/9766).
  - 1x 4n35 or 4n25 optocoupler.
  - 4x push switches.
  - 4x 10KΩ resistors.
@@ -123,14 +123,3 @@ LICENSE
 =======
 
 See the LICENSE file.
-
-
-LINKS
-=====
-
- - [1] http://www.arduino.cc
- - [2] http://shop.moderndevice.com/products/rbbb-kit
- - [3] http://timmsuess.com/intervaluino/
- - [4] http://timmsuess.com/
- - [5] http://fritzing.org/
- - [6] http://www.sparkfun.com/products/9766
