@@ -1,6 +1,6 @@
 /*
     Intervaluino Plus
-    Copyright (C) 2012  Enekochan <http://tech.enekochan.com/>
+    Copyright (C) 2012 Enekochan
     
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -13,11 +13,11 @@
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+    along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
 /*
-Intervaluino Plus Version 1.0 by Enekochan <http://tech.enekochan.com/>
+Intervaluino Plus Version 1.0 by Enekochan
 
 Release Notes:
  Version 1.0 First working version
@@ -59,7 +59,7 @@ For more details see "Special Codes" section in http://www.arunet.co.uk/tkboyd/e
 #include <SoftwareSerial.h>
 
 #define DEBUG 0 // BEWARE! Activating the debug thru the serial port makes the FastForward not to work as expected.
-                // Sending data creates an "artificial" delay and the FastForward becomes SlowForward ;)
+                // Sending data creates an "artificial" delay and the FastForward function will act slower
 #define COMPUTER_SERIAL_PORT_SPEED_BAUD 9600 // Serial port bauds with computer
 
 // Definitions for interrupt timer 2
@@ -140,7 +140,7 @@ Button Buttons[NUM_BUTTONS] = {RightButton, LeftButton, UpButton, DownButton};
 
 ISR(TIMER2_OVF_vect) {
   if (state == TAKING_PICTURES) {
-    // Aruino runs at 16 Mhz, so we have 1000 Overflows per second...
+    // Arduino Duemilanove runs at 16 Mhz, so we have 1000 Overflows per second...
     // 1/ ((16000000 / 64) / 256) = 1 / 1000
     RESET_TIMER2;
   
@@ -413,8 +413,11 @@ void add1To(char counter[], int* value) {
   
   displayCounterValue(counter);
   
-  if (*value==9999) *value=0;
-  else              *value=*value+1;
+  if (*value == 9999) {
+    *value = 0;
+  } else {
+    *value = *value + 1;
+  }
 }
 
 void subtract1To(char counter[], int* value) {
@@ -432,8 +435,11 @@ void subtract1To(char counter[], int* value) {
   
   displayCounterValue(counter);
   
-  if (*value==0) *value=9999;
-  else           *value=*value-1;
+  if (*value == 0) {
+    *value = 9999;
+  } else {
+    *value = *value - 1;
+  }
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -599,9 +605,13 @@ void printDebugData() {
   if (DEBUG) {
     Serial.println("-DEBUG-DATA-------------------------------");
     Serial.print(" * state: ");
-    if (state == 0) Serial.print("READING_PICS ");
-    else if (state == 1) Serial.print("READING_INTERVAL ");
-    else if (state == 2) Serial.print("TAKING_PICTURES ");
+    if (state == 0) {
+      Serial.print("READING_PICS ");
+    } else if (state == 1) {
+      Serial.print("READING_INTERVAL ");
+    } else if (state == 2) {
+      Serial.print("TAKING_PICTURES ");
+    }
     Serial.println(state, DEC);
     Serial.print(" * pics: "); Serial.println(pics);
     Serial.print(" * picsValue: ");Serial.println(picsValue, DEC);
@@ -609,17 +619,16 @@ void printDebugData() {
     Serial.print(" * intervalValue: ");Serial.println(intervalValue, DEC);
     for (int i = 0 ; i < NUM_BUTTONS ; i++) {
       Serial.print(" * Button[");
-      if(i==RIGHT) Serial.print("RIGHT]:");
-      if(i==LEFT) Serial.print("LEFT]:");
-      if(i==DOWN) Serial.print("DOWN]:");
-      if(i==UP) Serial.print("UP]:");
-      Serial.print(" actualState:");Serial.print(Buttons[i].actualState);
-      Serial.print(" previousState:");Serial.print(Buttons[i].previousState);
-      Serial.print(" fastForward:");Serial.print(Buttons[i].fastForward);
-      Serial.print(" previousMillis:");Serial.print(Buttons[i].previousMillis);
+      if (i == RIGHT) Serial.print("RIGHT]:");
+      if (i == LEFT) Serial.print("LEFT]:");
+      if (i == DOWN) Serial.print("DOWN]:");
+      if (i == UP) Serial.print("UP]:");
+      Serial.print(" actualState:"); Serial.print(Buttons[i].actualState);
+      Serial.print(" previousState:"); Serial.print(Buttons[i].previousState);
+      Serial.print(" fastForward:"); Serial.print(Buttons[i].fastForward);
+      Serial.print(" previousMillis:"); Serial.print(Buttons[i].previousMillis);
       Serial.println("");
     }
     Serial.println("------------------------------------------");
   }
 }
-
